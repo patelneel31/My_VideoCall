@@ -1,0 +1,187 @@
+/* Base Container */
+.landingPageContainer {
+  width: 100vw;
+  height: 100vh;
+  background: url("/bg2.jpg") no-repeat center center/cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Bar */
+.landingPageContainer nav {
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.landingPageContainer nav h2 {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #ff9839;
+  font-display: swap;
+
+  transition: all 0.3s ease-in-out;
+  transform-origin: left center;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.landingPageContainer nav h2:hover {
+  color: #f7ff88;
+  transform: scale(1.05) rotate(-1deg);
+  text-shadow: 2px 2px 8px rgba(255, 255, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+.navlist {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navlist p,
+.navlist a {
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-right: 3rem;
+}
+
+.navlist p:hover,
+.navlist a:hover {
+  color: #ff9839;
+}
+
+.navlist a::after,
+.navlist p::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #ff9839;
+  transition: width 0.5s ease;
+}
+
+.navlist a:hover::after,
+.navlist p:hover::after {
+  width: 100%;
+}
+
+/* Main Content */
+.landingMainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 2rem;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+/* Left Side */
+.landingMainContainer > div:nth-child(1) {
+  max-width: 50%;
+  font-size: 2.2rem;
+}
+
+.landingMainContainer > div:nth-child(1) p {
+  font-size: 1rem;
+  color: #ddd;
+  margin-top: 0.5rem;
+}
+
+.landingMainContainer > div:nth-child(1) div[role="button"] {
+  background: #ff9839;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  margin-top: 2rem;
+  width: fit-content;
+  transition: background 0.3s ease;
+}
+
+.landingMainContainer > div:nth-child(1) div[role="button"]:hover {
+  background: #e07c1f;
+}
+
+.landingMainContainer > div:nth-child(1) div[role="button"] a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Right Side (Image) */
+.landingMainContainer > div:nth-child(2) img {
+  height: 70vh;
+  max-width: 100%;
+  object-fit: contain;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Image Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Meet Container */
+.meetContainer {
+  display: flex;
+  padding: 2rem;
+  gap: 10vw;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Panels */
+.leftPanel,
+.rightPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightPanel img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.rightPanel img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .landingMainContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .landingMainContainer > div:nth-child(1) {
+    max-width: 100%;
+    font-size: 1.8rem;
+  }
+
+  .landingMainContainer > div:nth-child(2) img {
+    height: 50vh;
+  }
+}
